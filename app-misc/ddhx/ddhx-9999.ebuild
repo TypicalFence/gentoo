@@ -7,7 +7,7 @@ DESCRIPTION="Interactive hexadecimal file viewer for your terminal"
 
 KEYWORDS="amd64 x86"
 SLOT="0"
-SRC_URI="https://github.com/dd86k/ddhx/archive/master.zip"
+SRC_URI="https://github.com/dd86k/ddhx/archive/master.zip -> ${PN}-${PV}.zip"
 
 DLANG_VERSION_RANGE="2.075-"
 DLANG_PACKAGE_TYPE="single"
