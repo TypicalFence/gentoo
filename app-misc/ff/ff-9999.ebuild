@@ -7,17 +7,20 @@ DESCRIPTION="Simple, decent binary file scanner"
 
 KEYWORDS="amd64 x86"
 SLOT="0"
-SRC_URI="https://github.com/TypicalFence/ff/archive/master.zip -> ${PN}-${PV}.zip"
+EGIT_REPO_URI="https://github.com/dd86k/ff"
+
+case "${PV}" in
+	"9999")
+		inherit git-r3
+		;;
+	*)
+		0="${PN}-v${PV}"
+		SRC_URI="${EGIT_REPO_URI}/-/archive/v${PV}/${P0}.tar.gz -> ${P}.tar.gz"
+		S="${WORKDIR}/${P0}"
+esac
 
 DEPEND=""
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	if [[ -n ${A} ]]; then
-		unpack ${A}
-		mv  ff-master ff-${PV}
-	fi
-}
 
 src_compile() {
 	make CC=gcc
